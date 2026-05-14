@@ -1,0 +1,59 @@
+{% extends "Admin/AdminBase.html" %}
+{% block title %}Admin Dashboard - Brain Tumor Detection{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="container text-white py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-7 fade-in-up">
+        <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2 fw-bold">Administrator Portal</span>
+        <h1 class="display-4 fw-bold mb-3"><i class="bi bi-shield-check me-2"></i>Welcome, Admin!</h1>
+        <p class="lead mb-5 opacity-75">
+          Take control of the Brain Tumor Detection platform. Manage user accounts, curate medical insights, and maintain the knowledge base from your centralized command center.
+        </p>
+        
+        {% if msg %}
+          <div class="alert alert-{{ msg_type }} text-center rounded-pill mb-4 border-0 shadow-sm">{{ msg }}</div>
+        {% endif %}
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="premium-card p-4 h-100 text-center animate__animated animate__fadeInUp" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2);">
+                <i class="bi bi-people display-4 text-white mb-3"></i>
+                <h4 class="fw-bold text-white mb-3">Manage Users</h4>
+                <p class="small text-white opacity-75 mb-4">Oversee patient and professional accounts.</p>
+                <a href="/admin/users" class="btn btn-light rounded-pill w-100 fw-bold py-2 shadow-sm" style="color:var(--primary-color);">Users List</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="premium-card p-4 h-100 text-center animate__animated animate__fadeInUp animate__delay-1s" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2);">
+                <i class="bi bi-heart-pulse display-4 text-white mb-3"></i>
+                <h4 class="fw-bold text-white mb-3">Health Tips</h4>
+                <p class="small text-white opacity-75 mb-4">Publish and edit medical recommendations.</p>
+                <a href="/admin/health-tips" class="btn btn-light rounded-pill w-100 fw-bold py-2 shadow-sm" style="color:var(--primary-color);">Manage Tips</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center d-none d-lg-block animate__animated animate__zoomIn">
+        <div class="premium-card bg-white text-dark p-4 text-start shadow-lg">
+            <h5 class="fw-bold mb-3" style="color:var(--primary-color);"><i class="bi bi-gear-fill me-2"></i>Quick Actions</h5>
+            <div class="list-group list-group-flush">
+                <a href="/admin/faq" class="list-group-item list-group-item-action border-0 px-0">
+                    <i class="bi bi-question-circle me-2 text-premium"></i> Edit FAQs
+                </a>
+                <a href="/admin/users" class="list-group-item list-group-item-action border-0 px-0">
+                    <i class="bi bi-person-badge me-2 text-premium"></i> Admin Settings
+                </a>
+                <a href="/" class="list-group-item list-group-item-action border-0 px-0">
+                    <i class="bi bi-eye me-2 text-premium"></i> View Site
+                </a>
+            </div>
+            <hr class="my-4">
+            <a href="/adminlogout" class="btn btn-premium w-100 rounded-pill">System Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

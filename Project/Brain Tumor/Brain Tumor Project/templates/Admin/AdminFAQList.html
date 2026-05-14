@@ -1,0 +1,55 @@
+{% extends "Admin/AdminBase.html" %}
+{% block title %}Manage FAQs - Admin Portal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+      <h2 class="display-6 fw-bold" style="color:var(--primary-color);">Manage Frequently Asked Questions</h2>
+      <p class="text-muted">Help patients find answers to common inquiries.</p>
+  </div>
+
+  {% if msg %}
+    <div class="alert alert-{{ msg_type }} text-center rounded-pill mb-4 border-0 shadow-sm">{{ msg }}</div>
+  {% endif %}
+
+  <div class="text-end mb-4 fade-in-up">
+    <a href="{{ url_for('add_faq') }}" class="btn btn-premium px-4 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-plus-lg me-2"></i>New FAQ
+    </a>
+  </div>
+
+  {% if faqs %}
+    <div class="row g-4">
+      {% for faq in faqs %}
+      <div class="col-12 fade-in-up" style="animation-delay: {{ loop.index0 * 0.1 }}s">
+        <div class="premium-card p-0 overflow-hidden">
+          <div class="px-4 py-3 text-white fw-bold d-flex justify-content-between align-items-center" style="background: var(--bg-gradient);">
+            <span><i class="bi bi-question-circle me-2"></i>FAQ #{{ faq.id }}</span>
+            <span class="badge bg-light text-dark rounded-pill">Support</span>
+          </div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3" style="color:var(--primary-color);">{{ faq.question }}</h5>
+            <p class="text-muted mb-4">{{ faq.answer }}</p>
+            
+            <div class="d-flex gap-2">
+              <a href="{{ url_for('edit_faq', faq_id=faq.id) }}" class="btn btn-sm btn-outline-premium rounded-pill px-4">
+                <i class="bi bi-pencil-square me-2"></i>Edit
+              </a>
+              <a href="{{ url_for('delete_faq', faq_id=faq.id) }}" class="btn btn-sm btn-outline-danger rounded-pill px-4" 
+                 onclick="return confirm('Are you sure you want to delete this FAQ?');">
+                <i class="bi bi-trash me-2"></i>Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="premium-card text-center py-5">
+        <i class="bi bi-patch-question display-1 text-muted mb-3"></i>
+        <p class="text-muted fs-5">No FAQs available yet.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

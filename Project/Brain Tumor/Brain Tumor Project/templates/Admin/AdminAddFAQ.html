@@ -1,0 +1,37 @@
+{% extends "Admin/AdminBase.html" %}
+{% block title %}Add FAQ - Admin Portal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="premium-card fade-in-up">
+        <div class="text-center mb-4">
+            <div class="feature-icon-wrapper mx-auto mb-3">
+                <i class="bi bi-patch-question"></i>
+            </div>
+            <h3 class="fw-bold" style="color:var(--primary-color);">Create New FAQ</h3>
+            <p class="text-muted small">Add common questions and answers for your patients</p>
+        </div>
+
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-uppercase opacity-75">Question</label>
+              <textarea name="question" class="form-control" rows="3" placeholder="Enter the question here..." required></textarea>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold small text-uppercase opacity-75">Answer</label>
+              <textarea name="answer" class="form-control" rows="5" placeholder="Provide the detailed answer..." required></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-premium py-3 rounded-pill shadow-sm">Publish FAQ</button>
+              <a href="{{ url_for('admin_faq') }}" class="btn btn-outline-secondary border-0 text-decoration-none small mt-2">Cancel and Return</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

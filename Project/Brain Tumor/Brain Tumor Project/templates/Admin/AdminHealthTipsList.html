@@ -1,0 +1,55 @@
+{% extends "Admin/AdminBase.html" %}
+{% block title %}Manage Health Tips - Admin Portal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+      <h2 class="display-6 fw-bold" style="color:var(--primary-color);">Manage Health Tips</h2>
+      <p class="text-muted">Curate and publish medical advice for patients.</p>
+  </div>
+
+  {% if msg %}
+    <div class="alert alert-{{ msg_type }} text-center rounded-pill mb-4 border-0 shadow-sm">{{ msg }}</div>
+  {% endif %}
+
+  <div class="text-end mb-4 fade-in-up">
+    <a href="{{ url_for('add_health_tip') }}" class="btn btn-premium px-4 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-plus-lg me-2"></i>New Health Tip
+    </a>
+  </div>
+
+  {% if health_tips %}
+    <div class="row g-4">
+      {% for tip in health_tips %}
+      <div class="col-12 fade-in-up" style="animation-delay: {{ loop.index0 * 0.1 }}s">
+        <div class="premium-card p-0 overflow-hidden">
+          <div class="px-4 py-3 text-white fw-bold d-flex justify-content-between align-items-center" style="background: var(--bg-gradient);">
+            <span><i class="bi bi-heart-pulse me-2"></i>Health Tip #{{ tip.id }}</span>
+            <span class="badge bg-light text-dark rounded-pill">Medical Insights</span>
+          </div>
+          <div class="p-4">
+            <h4 class="fw-bold mb-3" style="color:var(--primary-color);">{{ tip.title }}</h4>
+            <p class="text-muted mb-4">{{ tip.description }}</p>
+            
+            <div class="d-flex gap-2">
+              <a href="{{ url_for('edit_health_tip', tip_id=tip.id) }}" class="btn btn-sm btn-outline-premium rounded-pill px-4">
+                <i class="bi bi-pencil-square me-2"></i>Edit Tip
+              </a>
+              <a href="{{ url_for('delete_health_tip', tip_id=tip.id) }}" class="btn btn-sm btn-outline-danger rounded-pill px-4"
+                 onclick="return confirm('Are you sure you want to delete this health tip?');">
+                <i class="bi bi-trash me-2"></i>Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="premium-card text-center py-5">
+        <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+        <p class="text-muted fs-5">No health tips found in the system.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

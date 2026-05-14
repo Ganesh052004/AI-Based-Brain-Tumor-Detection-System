@@ -1,0 +1,91 @@
+{% extends "Base.html" %}
+{% block title %}Home - Brain Tumor Detection{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-lg-6 fade-in-up">
+        <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2 fw-bold">Next-Gen AI Detection</span>
+        <h1 class="display-3 fw-bold mb-3">AI Brain Tumor <span style="color: var(--accent-color);">Detection</span></h1>
+        <p class="lead mb-4 opacity-75">Empowering early diagnosis with advanced AI and deep learning. 
+          Upload your MRI and get fast, reliable results powered by state-of-the-art neural networks.
+        </p>
+        <div class="d-flex gap-3">
+            <a href="/login" class="btn btn-premium">Get Started</a>
+            <a href="#about-ai" class="btn btn-outline-light rounded-pill px-4">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center animate__animated animate__zoomIn">
+        <img src="{{ url_for('static', filename='images/hero_brain.png') }}" alt="Brain MRI" class="img-fluid rounded-4 shadow-lg float-animation" style="max-height: 450px; border: 1px solid rgba(255,255,255,0.1);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about-ai" class="py-5 bg-gradient-white">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6 animate__animated animate__fadeInLeft">
+        <h6 class="text-uppercase fw-bold text-premium mb-2">Understanding the technology</h6>
+        <h2 class="display-5 fw-bold mb-4" style="color:var(--primary-color);">What is a Brain Tumor?</h2>
+        <p class="fs-5 text-muted mb-4">
+          A <b>brain tumor</b> is an abnormal growth of cells within the brain. Tumors can be benign or malignant, and early detection is critical for effective treatment and improved outcomes.
+        </p>
+        <div class="premium-card p-4 border-start border-4 border-premium">
+            <h4 class="fw-bold mb-3" style="color:var(--primary-color);">AI for Brain Tumor Detection</h4>
+            <p class="mb-0 text-muted">
+                Our <b>Artificial Intelligence (AI)</b> analyzes MRI scans to detect tumors quickly and accurately, improving diagnostic precision and speeding up the treatment process for patients.
+            </p>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center mt-5 mt-lg-0 animate__animated animate__zoomIn">
+        <img src="{{ url_for('static', filename='images/brain.jpeg') }}" alt="AI Brain Tumor Detection" class="img-fluid rounded-4 shadow-lg" style="max-height: 400px; border: 10px solid white;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5" style="background: #f8fafc;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold" style="color:var(--primary-color);">Key Features</h2>
+        <p class="text-muted">Designed for precision, speed, and security.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="premium-card h-100 text-center animate__animated animate__fadeInUp">
+          <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <h4 class="fw-bold mb-3">AI Powered</h4>
+          <p class="text-muted">State-of-the-art deep learning models for precise tumor detection from MRI scans.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="premium-card h-100 text-center animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Instant Results</h4>
+          <p class="text-muted">Upload and receive analysis in seconds, ensuring timely diagnosis and peace of mind.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="premium-card h-100 text-center animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Data Privacy</h4>
+          <p class="text-muted">Your medical data is encrypted and handled with the utmost confidentiality and security.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

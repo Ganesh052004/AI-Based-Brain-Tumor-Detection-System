@@ -1,0 +1,85 @@
+{% extends "Base.html" %}
+{% block title %}About Us - Brain Tumor Detection{% endblock %}
+
+{% block content %}
+
+<!-- About Us Hero Section -->
+<section class="hero-section">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-lg-7 fade-in-up">
+        <h1 class="display-4 fw-bold mb-3">About Us</h1>
+        <p class="lead mb-4 opacity-75">
+          We are dedicated to revolutionizing brain tumor diagnosis through cutting-edge AI technology. Our platform empowers healthcare professionals and patients with rapid, accurate, and accessible brain tumor detection from MRI scans.
+        </p>
+      </div>
+      <div class="col-lg-5 text-center animate__animated animate__zoomIn">
+        <img src="{{ url_for('static', filename='images/brain.jpeg') }}" alt="Our Team" class="img-fluid rounded-4 shadow-lg float-animation" style="max-height: 300px; border: 1px solid rgba(255,255,255,0.1);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="py-5 bg-gradient-white">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-md-6 animate__animated animate__fadeInUp">
+        <div class="premium-card h-100">
+          <div class="feature-icon-wrapper">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <h3 class="fw-bold mb-3" style="color:var(--primary-color);">Our Mission</h3>
+          <p class="text-muted">
+            To harness the power of artificial intelligence in medical imaging, enabling early and accurate detection of brain tumors for every patient, everywhere.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="premium-card h-100">
+          <div class="feature-icon-wrapper">
+            <i class="bi bi-eye"></i>
+          </div>
+          <h3 class="fw-bold mb-3" style="color:var(--primary-color);">Our Vision</h3>
+          <p class="text-muted">
+            To become a global leader in AI-powered healthcare solutions, improving lives by supporting clinicians and patients with advanced, reliable, and ethical technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5" style="background: #fff;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold" style="color:var(--primary-color);">Why Choose Us?</h2>
+    </div>
+    <div class="row text-center g-4">
+      <div class="col-md-4 animate__animated animate__fadeInUp">
+        <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-stars"></i>
+        </div>
+        <h5 class="mt-3 fw-bold">Expert Team</h5>
+        <p class="text-muted">Our team brings together medical, AI, and engineering expertise to deliver trusted solutions.</p>
+      </div>
+      <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-lightbulb"></i>
+        </div>
+        <h5 class="mt-3 fw-bold">Innovation</h5>
+        <p class="text-muted">We constantly innovate, integrating the latest research and technology for best-in-class results.</p>
+      </div>
+      <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="feature-icon-wrapper mx-auto">
+            <i class="bi bi-heart-fill"></i>
+        </div>
+        <h5 class="mt-3 fw-bold">Patient Focus</h5>
+        <p class="text-muted">We put patients first, ensuring privacy, accuracy, and compassion in every diagnosis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "User/UserBase.html" %}
+{% block title %}FAQs - Brain Tumor Detection{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+      <h2 class="display-5 fw-bold" style="color:var(--primary-color);">Frequently Asked Questions</h2>
+      <p class="text-muted">Find answers to common questions about brain tumors and our AI detection technology.</p>
+  </div>
+
+  {% if msg %}
+    <div class="alert alert-{{ msg_type }} text-center rounded-pill mb-4">{{ msg }}</div>
+  {% endif %}
+
+  {% if faqs %}
+    <div class="accordion accordion-flush premium-card p-0 overflow-hidden fade-in-up" id="faqAccordion">
+      {% for faq in faqs %}
+      <div class="accordion-item border-0 border-bottom">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" style="color:var(--primary-color); background: transparent;">
+            <i class="bi bi-patch-question me-3 opacity-50"></i>{{ faq.question }}
+          </button>
+        </h2>
+        <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body px-4 py-4 text-muted" style="line-height: 1.8;">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="premium-card text-center py-5 fade-in-up">
+        <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+        <p class="text-muted fs-5">No FAQs available at the moment.</p>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+.accordion-button:not(.collapsed) {
+    background-color: rgba(0, 76, 76, 0.05) !important;
+    color: var(--primary-color) !important;
+    box-shadow: none !important;
+}
+.accordion-button::after {
+    filter: brightness(0);
+}
+</style>
+{% endblock %}

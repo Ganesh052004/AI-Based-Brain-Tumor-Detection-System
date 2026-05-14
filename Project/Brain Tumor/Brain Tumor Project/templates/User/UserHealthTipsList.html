@@ -1,0 +1,39 @@
+{% extends "User/UserBase.html" %}
+{% block title %}Medical Insights - Brain Tumor Detection{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+      <h2 class="display-5 fw-bold" style="color:var(--primary-color);">Health & Wellness Tips</h2>
+      <p class="text-muted">Stay informed with expert medical advice and lifestyle recommendations for better brain health.</p>
+  </div>
+
+  {% if msg %}
+    <div class="alert alert-{{ msg_type }} text-center rounded-pill mb-4">{{ msg }}</div>
+  {% endif %}
+
+  {% if health_tips %}
+    <div class="row g-4">
+      {% for tip in health_tips %}
+      <div class="col-lg-6 fade-in-up" style="animation-delay: {{ loop.index0 * 0.1 }}s">
+        <div class="premium-card h-100 p-0 overflow-hidden">
+          <div class="px-4 py-3 text-white fw-bold d-flex justify-content-between align-items-center" style="background: var(--bg-gradient);">
+            <span><i class="bi bi-heart-pulse me-2"></i>Insight #{{ loop.index }}</span>
+            <span class="badge bg-light text-dark rounded-pill">Medical Advice</span>
+          </div>
+          <div class="p-4">
+            <h4 class="fw-bold mb-3" style="color:var(--primary-color);">{{ tip.title }}</h4>
+            <p class="text-muted mb-0" style="line-height: 1.7;">{{ tip.description }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="premium-card text-center py-5 fade-in-up">
+        <i class="bi bi-journal-medical display-1 text-muted mb-3"></i>
+        <p class="text-muted fs-5">No health tips available at the moment.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
